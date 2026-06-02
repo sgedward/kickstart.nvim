@@ -242,6 +242,10 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
+vim.keymap.set('n', '<leader>oi', function()
+  vim.lsp.buf.code_action { context = { only = { 'source.organizeImports' } }, apply = true }
+end, { desc = 'Organize Imports' })
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -688,7 +692,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
