@@ -106,6 +106,18 @@ nvim
 That's it! Lazy will install all the plugins you have. Use `:Lazy` to view
 the current plugin status. Hit `q` to close the window.
 
+#### Enable Git Hooks (secret scanning)
+
+This repo ships a `pre-commit` hook in `hooks/` that runs
+[gitleaks](https://github.com/gitleaks/gitleaks) against staged changes to
+block accidental commits of API keys or secrets. After cloning, opt in once:
+
+```sh
+git config core.hooksPath hooks
+```
+
+Install gitleaks (`brew install gitleaks` on macOS) for the hook to run.
+
 #### Read The Friendly Documentation
 
 Read through the `init.lua` file in your configuration folder for more
